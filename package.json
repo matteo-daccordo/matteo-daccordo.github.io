@@ -2,7 +2,7 @@
   "name": "website",
   "version": "1.0.0",
   "scripts": {
-    //"prestart": "npm init",
+    "prestart": "npm init",
     "start": "node index.js"
   },
   "license": "Unlicense",
