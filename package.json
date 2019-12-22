@@ -2,13 +2,16 @@
   "name": "website",
   "version": "1.0.0",
   "scripts": {
-    "prestart": "npm init",
+    //"prestart": "npm init",
     "start": "node index.js"
   },
   "license": "Unlicense",
   "private": true,
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "13.5.0"
   },
   "main": "index.js",
   "repository": {
