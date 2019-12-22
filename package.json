@@ -1,0 +1,25 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "scripts": {
+    "prestart": "npm init",
+    "start": "node index.js"
+  },
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteo-daccordo/website.git"
+  },
+  "author": "Matteo Daccordo",
+  "bugs": {
+    "url": "https://github.com/matteo-daccordo/website/issues"
+  },
+  "homepage": "https://github.com/matteo-daccordo/website#readme",
+  "description": "My website",
+  "devDependencies": {}
+}
