@@ -13,14 +13,10 @@
 					<h1 class="bold-text">Experience</h1>
 				</div>
 				<div class="p-5">
-					<h2 class="mb-4">Experience</h2>
-					<h4 class="mb-4">I'm a UI/UX Designer &amp; Frontend Developer from London, UK. I aim to
-						make a difference through my creative solution.</h4>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and
-						Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right
-						at the coast of the Semantics, a large language ocean.</p>
+					<h2 class="mb-4">Projects</h2>
+					<h4 class="mb-4">During my iter, I dedicated myself to different academic projects</h4>
+					<p>Some of them are listed here:</p>
 					<div id="projects">
-
 					</div>
 				</div>
 			</div>
@@ -47,12 +43,11 @@
 				div += 
 				'<div class=\"exp-wrap py-4\"">' +
 					'<div class=\"desc\">'+
-						'<h4>' + '<a href=\"' + item.html_url + '\">' + item.name + '</a><span> -' + languages + '</h4>' +
+						'<h4>' + '<a href=\"' + item.html_url + '\">' + item.name + '</a><span> - ' + languages + '</h4>' +
 						'<p class=\"location\">' + 'size: ' + item.size +'</p>' +
 						'</div>' +
 						'<div class=\"year\">' +
-							'<p> From ' +  new Date(item.created_at).getMonth()+'/'+new Date(item.created_at).getFullYear() + 
-								'\n To ' + new Date(item.updated_at).getMonth()+'/'+new Date(item.updated_at).getFullYear() + '</p>' +
+							'<p> From ' +  new Date(item.created_at).getMonth()+'\/'+new Date(item.created_at).getFullYear() + ' To ' + new Date(item.updated_at).getMonth()+'\/'+new Date(item.updated_at).getFullYear() + '</p>' +
 						'</div>' +
 					'</div>'
 				document.getElementById('projects').innerHTML = div
