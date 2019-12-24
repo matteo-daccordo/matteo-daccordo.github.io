@@ -7893,8 +7893,6 @@ header {
   float: left; }
   .exp-wrap .desc, .exp-wrap .year {
     float: left; }
-  .exp-wrap .desc {
-    width: calc(100% - 150px); }
     .exp-wrap .desc h4 span {
       color: #8c8c8c;
       font-weight: 300; }
