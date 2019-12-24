@@ -1,1 +1,1 @@
-First personal website automatically deployed heroku
+First personal website automatically deployed on heroku
