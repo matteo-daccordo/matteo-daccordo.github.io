@@ -8087,6 +8087,21 @@ textarea.form-control {
 .email a:hover span{
   color: #2f89fc; }
 
+.back{
+  color: white;
+  border-bottom: 3px solid white;
+  width: 100%;
+  display: inline-block;
+  transition: width 0.3s;
+}
+
+.back:hover{
+  color: white;
+  width: 120%;
+  border-bottom: 3px solid white;
+  position: relative;
+}
+
 .ftco-footer-social li {
   list-style: none;
   margin: 0 10px 10px 0;
