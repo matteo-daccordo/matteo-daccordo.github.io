@@ -3,7 +3,7 @@ AOS.init({
 	easing: 'slide'
 });
 
-$(function () {
+$(function ($) {
 	"use strict";
 	$(window).stellar({
 		responsive: false,
@@ -66,9 +66,9 @@ $(function () {
 
 		fixedContentPos: false
 	});
-	pageProgress();
+	pageProgress()
 
-	setSections();
+	setSections()
 });
 
 function setSections(){
@@ -109,6 +109,15 @@ function contentWayPoint() {
 	var i = 0;
 	$('.ftco-animate').waypoint(function (direction) {
 		if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
+			
+			$('.number').each(function () {
+				let $this = $(this)
+				$this.animateNumber({
+					number: num = $this.data('number'),
+					numberStep: $.animateNumber.numberStepFactories.separator(',')
+				}, 3500);
+			});
+
 			i++;
 			$(this.element).addClass('item-animate');
 			setTimeout(function () {
@@ -129,7 +138,6 @@ function contentWayPoint() {
 						el.removeClass('item-animate');
 					}, k * 50, 'easeInOutExpo');
 				});
-
 			}, 100);
 		}
 	}, { offset: '95%' });
