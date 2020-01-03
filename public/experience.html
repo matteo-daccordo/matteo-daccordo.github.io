@@ -43,6 +43,8 @@
 			}).then(resp =>{
 				return Object.keys(resp).join(', ')
 			}).then( languages => {
+				let created = new Date(item.created_at).getMonth() + 1
+				let updated = new Date(item.updated_at).getMonth() + 1
 				div += 
 				'<div class=\"exp-wrap py-4\"">' +
 					'<div class=\"desc\">'+
@@ -50,7 +52,7 @@
 						'<p class=\"location\">' + 'size: ' + item.size +'</p>' +
 						'</div>' +
 						'<div class=\"year\">' +
-							'<p> From ' +  new Date(item.created_at).getMonth()+'\/'+new Date(item.created_at).getFullYear() + ' To ' + new Date(item.updated_at).getMonth()+'\/'+new Date(item.updated_at).getFullYear() + '</p>' +
+							'<p> From ' + created +'\/'+new Date(item.created_at).getFullYear() + ' To ' + updated  +'\/'+new Date(item.updated_at).getFullYear() + '</p>' +
 						'</div>' +
 					'</div>'
 				document.getElementById('projects').innerHTML = div
