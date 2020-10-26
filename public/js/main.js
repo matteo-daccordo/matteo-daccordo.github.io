@@ -98,6 +98,7 @@ function carousel() {
     animateIn: "fadeIn",
     nav: true,
     dots: false,
+    autoplayTimeout: 4000,
     autoplayHoverPause: false,
     items: 1,
     navText: ["<span class='ion-md-arrow-back'></span>", "<span class='ion-chevron-right'></span>"],
@@ -149,7 +150,7 @@ async function loadGitProjects() {
             repo_updateMonth,
             repo_updatedYear
           );
-          document.getElementById("projects").appendChild(node);
+          $("#projects").append(node);
         });
       });
   });

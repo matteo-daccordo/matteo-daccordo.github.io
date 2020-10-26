@@ -1,0 +1,18 @@
+.card {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: -1px 0 5px grey;
+  transition: 0.4s ease;
+  position: relative;
+  left: 0px;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  transition: 0.4s ease-out;
+}
+
+.card .card-text {
+  color: black;
+}
