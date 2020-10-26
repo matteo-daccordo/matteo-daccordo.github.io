@@ -1,195 +1,168 @@
 AOS.init({
-	duration: 800,
-	easing: 'slide'
+  duration: 800,
+  easing: "slide",
 });
 
-$(function ($) {
-	"use strict";
-	$(window).stellar({
-		responsive: false,
-		parallaxBackgrounds: true,
-		parallaxElements: true,
-		horizontalScrolling: false,
-		hideDistantElements: false,
-		scrollProperty: 'scroll'
-	});
+const PAGES_HTML = [
+  "about.html",
+  "experience.html",
+  "education.html",
+  "skills.html",
+  "navigation.html",
+  "more.html",
+  "footer.html",
+];
+const PAGES_FOLDER = "pages/";
+const PAGES_ID_PREFIX = "#index_";
 
-	// Scrollax
-	$.Scrollax();
+$(function loadIndex($) {
+  $(window).stellar({
+    responsive: false,
+    parallaxBackgrounds: true,
+    parallaxElements: true,
+    horizontalScrolling: false,
+    hideDistantElements: false,
+    scrollProperty: "scroll",
+  });
 
-	// loader
-	var loader = function () {
-		setTimeout(function () {
-			if ($('#ftco-loader').length > 0) {
-				$('#ftco-loader').removeClass('show');
-			}
-		}, 1);
-	};
+  $.Scrollax();
 
-	loader();
+  loader();
 
-	carousel();
+  carousel();
 
-	fullHeight();
+  fullHeight();
 
-	burgerMenu();
+  burgerMenu();
 
-	contentWayPoint();
+  pageProgress();
 
-	// magnific popup
-	$('.image-popup').magnificPopup({
-		type: 'image',
-		closeOnContentClick: true,
-		closeBtnInside: false,
-		fixedContentPos: true,
-		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-		gallery: {
-			enabled: true,
-			navigateByImgClick: true,
-			preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-		},
-		image: {
-			verticalFit: true
-		},
-		zoom: {
-			enabled: true,
-			duration: 300 // don't foget to change the duration also in CSS
-		}
-	});
+  setSections();
 
-	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-		disableOn: 700,
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
+  animateCounters($);
 
-		fixedContentPos: false
-	});
-	pageProgress()
-
-	setSections()
+  loadGitProjects();
 });
 
-function setSections(){
-	$.get("about.html", function(data){
-			$("#aboutme").html(data)
-	})
-	$.get("experience.html", function(data){
-			$("#experience").html(data)
-	})
-	$.get("education.html", function(data){
-			$("#education").html(data)
-	})
-	$.get("skills.html", function(data){
-			$("#skills").html(data)
-	})
-	$.get("nav.html", function(data){
-			$("#navigation").replaceWith(data)
-	})
-	$.get("more.html", function(data){
-			$("#more").html(data)
-	})
-	$.get("footer.html", function(data){
-			$("#footer").html(data)
-	})
+function loader() {
+  if ($("#ftco-loader").length > 0) {
+    $("#ftco-loader").removeClass("show");
+  }
+}
+
+function setSections() {
+  PAGES_HTML.forEach(function (page) {
+    $.get(PAGES_FOLDER + page, function (data) {
+      $(PAGES_ID_PREFIX + page.replace(".html", "")).html(data);
+    });
+  });
 }
 
 function pageProgress() {
-	$(window).scroll(function () {
-		var wintop = $(window).scrollTop(), docheight = $('.page').height(), winheight = $(window).height();
-		// console.log(wintop);
-		var totalScroll = (wintop / (docheight - winheight)) * 100;
-		// console.log("total scroll" + totalScroll);
-		$(".KW_progressBar").css("width", totalScroll + "%");
-	});
-};
-
-function contentWayPoint() {
-	var i = 0;
-	$('.ftco-animate').waypoint(function (direction) {
-		if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
-			
-			$('.number').each(function () {
-				let $this = $(this)
-				$this.animateNumber({
-					number: num = $this.data('number'),
-					numberStep: $.animateNumber.numberStepFactories.separator(',')
-				}, 3500);
-			});
-
-			i++;
-			$(this.element).addClass('item-animate');
-			setTimeout(function () {
-
-				$('body .ftco-animate.item-animate').each(function (k) {
-					var el = $(this);
-					setTimeout(function () {
-						var effect = el.data('animate-effect');
-						if (effect === 'fadeIn') {
-							el.addClass('fadeIn ftco-animated');
-						} else if (effect === 'fadeInLeft') {
-							el.addClass('fadeInLeft ftco-animated');
-						} else if (effect === 'fadeInRight') {
-							el.addClass('fadeInRight ftco-animated');
-						} else {
-							el.addClass('fadeInUp ftco-animated');
-						}
-						el.removeClass('item-animate');
-					}, k * 50, 'easeInOutExpo');
-				});
-			}, 100);
-		}
-	}, { offset: '95%' });
-};
+  $(window).on("scroll", function () {
+    let wintop = $(window).scrollTop(),
+      docheight = $(".page").height(),
+      winheight = $(window).height(),
+      totalScroll = (wintop / (docheight - winheight)) * 100;
+    $(".progressBar").css("width", totalScroll + "%");
+  });
+}
 
 function burgerMenu() {
-	$('.js-colorlib-nav-toggle').on('click', function (event) {
-		event.preventDefault();
-		if ($('body').hasClass('menu-show')) {
-			$('body').removeClass('menu-show');
-			$('#colorlib-main-nav > .js-colorlib-nav-toggle').removeClass('show');
-		} else {
-			$('body').addClass('menu-show');
-			setTimeout(function () {
-				$('#colorlib-main-nav > .js-colorlib-nav-toggle').addClass('show');
-			}, 900);
-		}
-	})
-};
+  $(".js-colorlib-nav-toggle").on("click", function (event) {
+    event.preventDefault();
+    if (!$("body").hasClass("menu-show")) {
+      $("body").addClass("menu-show");
+      $("#colorlib-main-nav").on("click", function () {
+        if ($("body").hasClass("menu-show")) {
+          $("body").removeClass("menu-show");
+        }
+      });
+    }
+  });
+}
 
 function fullHeight() {
-	$('.js-fullheight').css('height', $(window).height());
-	$(window).resize(function () {
-		$('.js-fullheight').css('height', $(window).height());
-	});
-};
+  $(".js-fullheight").css("height", $(window).height());
+  $(window).on("resize", function () {
+    $(".js-fullheight").css("height", $(window).height());
+  });
+}
 
 function carousel() {
-	$('.home-slider').owlCarousel({
-		loop: true,
-		autoplay: true,
-		margin: 0,
-		animateOut: 'fadeOut',
-		animateIn: 'fadeIn',
-		nav: false,
-		dots: false,
-		autoplayHoverPause: false,
-		items: 1,
-		navText: ["<span class='ion-md-arrow-back'></span>", "<span class='ion-chevron-right'></span>"],
-		responsive: {
-			0: {
-				items: 1,
-				nav: false
-			},
-			600: {
-				items: 1,
-				nav: false
-			},
-			1000: {
-				items: 1,
-				nav: false
-			}
-		}
-	});
-};
+  $(".home-slider").owlCarousel({
+    loop: true,
+    autoplay: true,
+    margin: 0,
+    animateOut: "fadeOut",
+    animateIn: "fadeIn",
+    nav: true,
+    dots: false,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: false,
+    items: 1,
+    navText: ["<span class='ion-md-arrow-back'></span>", "<span class='ion-chevron-right'></span>"],
+    responsive: {},
+  });
+}
+
+function animateCounters($) {
+  $(window).on("scroll", function () {
+    if (!$(this.element).hasClass("ftco-animate")) {
+      $(".number").each(function () {
+        let $this = $(this);
+        $this.animateNumber(
+          {
+            number: $this.data("number"),
+            numberStep: $.animateNumber.numberStepFactories.separator(","),
+          },
+          3500
+        );
+      });
+    }
+  });
+}
+
+async function loadGitProjects() {
+  const repos = await fetch("https://api.github.com/users/matteo-daccordo/repos").then((res) => {
+    if (res.status === 200) return res.json();
+  });
+  repos.forEach((repo) => {
+    fetch(repo.languages_url)
+      .then((res) => {
+        if (res.status === 200) return res.json();
+      })
+      .then((langs) => {
+        let repo_createdMonth = new Date(repo.created_at).getMonth() + 1,
+          repo_createdYear = new Date(repo.created_at).getFullYear(),
+          repo_updateMonth = new Date(repo.updated_at).getMonth() + 1,
+          repo_updatedYear = new Date(repo.updated_at).getFullYear(),
+          languages = Object.keys(langs).join(", ");
+        $.get(PAGES_FOLDER + "git-project.html", function (data) {
+          let node = formatHTML(
+            data,
+            repo.html_url,
+            repo.name,
+            repo.description,
+            languages,
+            repo_createdMonth,
+            repo_createdYear,
+            repo_updateMonth,
+            repo_updatedYear
+          );
+          $("#projects").append(node);
+        });
+      });
+  });
+}
+
+function formatHTML() {
+  let n = document.createElement("div");
+  let s = arguments[0];
+  for (let i = 0; i < arguments.length - 1; i++) {
+    let reg = new RegExp("\\{" + i + "\\}", "gm");
+    s = s.replace(reg, arguments[i + 1]);
+  }
+  n.innerHTML = s;
+  return n;
+}
