@@ -7,6 +7,7 @@
   "license": "Unlicense",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1"
   },
@@ -20,6 +21,5 @@
     "url": "https://github.com/matteo-daccordo/website/issues"
   },
   "homepage": "https://github.com/matteo-daccordo/website#readme",
-  "description": "My website",
-  "devDependencies": {}
+  "description": "My website"
 }
