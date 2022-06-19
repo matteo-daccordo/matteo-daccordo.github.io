@@ -124,45 +124,48 @@ function animateCounters($) {
 }
 
 async function loadGitProjects() {
-  const repos = await fetch("https://api.github.com/users/matteo-daccordo/repos").then((res) => {
-    if (res.status === 200) return res.json();
-  });
-  repos.forEach((repo) => {
-    fetch(repo.languages_url)
-      .then((res) => {
-        if (res.status === 200) return res.json();
-      })
-      .then((langs) => {
-        let repo_createdMonth = new Date(repo.created_at).getMonth() + 1,
-          repo_createdYear = new Date(repo.created_at).getFullYear(),
-          repo_updateMonth = new Date(repo.updated_at).getMonth() + 1,
-          repo_updatedYear = new Date(repo.updated_at).getFullYear(),
-          languages = Object.keys(langs).join(", ");
-        $.get(PAGES_FOLDER + "git-project.html", function (data) {
-          let node = formatHTML(
-            data,
-            repo.html_url,
-            repo.name,
-            repo.description,
-            languages,
-            repo_createdMonth,
-            repo_createdYear,
-            repo_updateMonth,
-            repo_updatedYear
-          );
-          $("#projects").append(node);
-        });
-      });
-  });
+  const repos = await fetch("https://api.github.com/users/matteo-daccordo/repos")
+    .then(res => {
+      if (res.status === 200) return res.json();
+    });
+  console.log('REPOS:' + JSON.stringify(repos[0]));
+  repos.sort((a, b) =>
+      new Date(b.updated_at) - new Date(a.updated_at)
+    ).
+    forEach(repo => {
+      fetch(repo.languages_url)
+        .then(res => {
+          if (res.status === 200) return res.json();
+        })
+        .then(langs =>
+          $.get(
+            PAGES_FOLDER + "git-project.html",
+            data =>
+              $("#projects")
+                .append(
+                  formatHTML(
+                    data,
+                    repo.html_url,
+                    repo.name,
+                    repo.description,
+                    Object.keys(langs).join(", "),
+                    new Date(repo.created_at).getMonth() + 1,
+                    new Date(repo.created_at).getFullYear(),
+                    new Date(repo.updated_at).getMonth() + 1,
+                    new Date(repo.updated_at).getFullYear()
+                  )
+                )
+          )
+        );
+    }
+  );
 }
 
 function formatHTML() {
-  let n = document.createElement("div");
   let s = arguments[0];
   for (let i = 0; i < arguments.length - 1; i++) {
     let reg = new RegExp("\\{" + i + "\\}", "gm");
     s = s.replace(reg, arguments[i + 1]);
   }
-  n.innerHTML = s;
-  return n;
+  return s;
 }

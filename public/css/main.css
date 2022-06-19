@@ -3,32 +3,31 @@
   border: 1px solid white;
   transition: border 0.3s ease, box-shadow 0.3s ease-in-out;
 }
-
 .cardy:hover {
   transform: translateX(-15px);
-  border-color: dodgerblue;
-  box-shadow: 2px 1px 0px dodgerblue;
-  background-color: #373737;
+  border-color: var(--light-blue);
+  box-shadow: 2px 1px 0px var(--light-blue);
 }
-
 .cardy .card-text {
   color: whitesmoke;
 }
 .li-line {
-  color: dodgerblue;
+  color: var(--light-blue);
   position: relative;
+  padding-left: 1rem;
 }
-
+.li-line::marker {
+  color: var(--light-blue);
+  font-size: 1.8rem;
+}
 .li-line p {
   color: #8c8c8c;
 }
-
-.li-line:before {
+.li-line::before {
   position: absolute;
-  border: 0.5px solid dodgerblue;
-  height: 220px;
+  border-left: .2rem solid var(--light-blue);
+  height: 100%;
   display: block;
   content: "";
-  left: -18px;
-  top: -12px;
+  left: -1.3em;
 }

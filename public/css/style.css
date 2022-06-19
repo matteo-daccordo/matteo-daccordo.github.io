@@ -6,6 +6,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --dark-black-blue: #00171F;
+  --dark-blue: #003459;
+  --dark-light-blue: #007EA7;
+  --light-blue: #00A8E8;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -2137,8 +2141,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: Dodgerblue;
-  border-color: Dodgerblue;
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
 }
 .btn-secondary:hover {
   color: #fff;
@@ -7685,7 +7689,7 @@ a.text-dark:focus {
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: #121212;
+  background: var(--dark-black-blue);
   font-size: 18px;
   line-height: 1.8;
   font-weight: 400;
@@ -7750,7 +7754,7 @@ body .progressBar {
   height: 100%;
   z-index: 99;
   max-width: 100%;
-  background-color: #2f89fc;
+  background-color: var(--dark-light-blue);
   -webkit-transition: width 0.6s ease;
   -o-transition: width 0.6s ease;
   transition: width 0.6s ease;
@@ -7760,11 +7764,11 @@ a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 a:hover {
   text-decoration: none;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 
 h1,
@@ -7783,7 +7787,7 @@ h5,
 }
 
 .text-primary {
-  color: #2f89fc !important;
+  color: var(--dark-light-blue) !important;
 }
 
 #colorlib-main-nav {
@@ -7926,10 +7930,10 @@ h5,
   font-size: 40px;
 }
 #colorlib-main-nav ul li.active a span {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 #colorlib-main-nav ul li:hover a span {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 #colorlib-main-nav ul li a {
   font-size: 40px;
@@ -8179,7 +8183,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   margin: 5px 7px;
 }
 .owl-carousel .owl-dots .owl-dot.active span {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
 }
 .owl-carousel:hover .owl-nav .owl-prev,
 .owl-carousel:hover .owl-nav .owl-next {
@@ -8210,7 +8214,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   right: 0;
   bottom: 0;
   content: "";
-  background: #2f89fc;
+  background: var(--dark-light-blue);
   opacity: 0;
 }
 .owl-carousel.home-slider .slider-item .slider-text {
@@ -8348,7 +8352,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 
 .bg-primary {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
 }
 
 .btn {
@@ -8373,9 +8377,9 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   color: #121212;
 }
 .btn.btn-primary.btn-outline-primary {
-  border: 1px solid #2f89fc;
+  border: 1px solid var(--dark-light-blue);
   background: transparent;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 .btn.btn-primary.btn-outline-primary:hover {
   border: 1px solid transparent;
@@ -8411,11 +8415,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 .wrap {
   padding: 0;
 }
-@media (max-width: 767.98px) {
-  .wrap {
-    margin-top: 40px;
-  }
-}
+
 @media (min-width: 768px) {
   .wrap .about-desc {
     position: relative;
@@ -8479,7 +8479,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 
 .progress-bar {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
   -webkit-box-shadow: none;
   box-shadow: none;
   line-height: 1.2;
@@ -8497,7 +8497,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   width: 10px;
   height: 10px;
   content: "";
-  background: #2f89fc;
+  background: var(--dark-light-blue);
   border-radius: 50%;
 }
 .progress-bar span {
@@ -8507,10 +8507,10 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   color: #6c757d;
 }
 .progress-bar.color-1 {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
 }
 .progress-bar.color-1:after {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
 }
 
 .services {
@@ -8518,7 +8518,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 .services .icon span {
   position: relative;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
   font-size: 40px;
   z-index: 0;
   line-height: 1.5;
@@ -8590,7 +8590,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 
 .bg-primary {
-  background: #2f89fc !important;
+  background: var(--dark-light-blue) !important;
 }
 
 .ftco-section .ftco-sub-title {
@@ -8615,7 +8615,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 0;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 .media-custom .media-body .position {
   font-size: 13px;
@@ -8626,17 +8626,13 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   border-radius: 50%;
 }
 
-.ftco-section {
-  padding: 7em 0;
-}
-
 .ftco-bg-dark {
   background: #3c312e;
 }
 
 .ftco-footer {
   font-size: 16px;
-  background: #121212;
+  background: var(--dark-black-blue);
   padding: 8em 0;
 }
 .ftco-footer .ftco-footer-logo {
@@ -8673,7 +8669,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 
 .email a:hover span {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 
 .back {
@@ -8726,14 +8722,14 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 .footer-small-nav > li a:hover,
 .footer-small-nav > li a:focus {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 
 .media .ftco-icon {
   width: 100px;
 }
 .media .ftco-icon span {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 
 .ftco-media {
@@ -8763,7 +8759,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 .ftco-media .icon {
   font-size: 50px;
   display: block;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 .ftco-media.text-center .ftco-icon {
   margin: 0 auto;
@@ -8843,7 +8839,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 .ftco-counter .text strong.number {
   font-weight: 400;
   font-size: 80px;
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 @media (max-width: 767.98px) {
   .ftco-counter .text strong.number {
@@ -8902,7 +8898,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 .blog-entry .text .heading a:hover,
 .blog-entry .text .heading a:focus,
 .blog-entry .text .heading a:active {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 
 .blog-entry .meta > div {
@@ -8960,7 +8956,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 .block-27 ul li.active a,
 .block-27 ul li.active span {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
   color: #fff;
   border: 1px solid transparent;
 }
@@ -9051,9 +9047,9 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
-  background: #2f89fc;
+  background: var(--dark-light-blue);
   color: #fff;
-  border: 1px solid #2f89fc;
+  border: 1px solid var(--dark-light-blue);
 }
 .block-8 .accordion-item .heading > a[aria-expanded="false"]:before {
   content: "\e313";
@@ -9132,11 +9128,11 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   transition: 0.3s all ease;
 }
 .block-4 .nonloop .owl-dots .owl-dot.active {
-  background: #2f89fc;
+  background: var(--dark-light-blue);
 }
 
 .contact-section .contact-info p a {
-  color: #2f89fc;
+  color: var(--dark-light-blue);
 }
 
 .block-3 .image {
@@ -9152,7 +9148,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 .block-3 .image .icon {
   width: 100px;
   height: 100px;
-  background: #2f89fc;
+  background: var(--dark-light-blue);
   border-radius: 50%;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
