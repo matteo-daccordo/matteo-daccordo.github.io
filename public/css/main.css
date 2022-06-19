@@ -18,17 +18,16 @@
 }
 .li-line::marker {
   color: dodgerblue;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .li-line p {
   color: #8c8c8c;
 }
 .li-line::before {
   position: absolute;
-  border-left: .25em solid dodgerblue;
-  height: 10em;
+  border-left: .2rem solid dodgerblue;
+  height: 100%;
   display: block;
   content: "";
-  left: -1.5em;
+  left: -1.3em;
 }
-
