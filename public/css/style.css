@@ -8636,7 +8636,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 
 .ftco-footer {
   font-size: 16px;
-  background: #121212;
+  background: var(--dark-black-blue);
   padding: 8em 0;
 }
 .ftco-footer .ftco-footer-logo {
