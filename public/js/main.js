@@ -162,12 +162,10 @@ async function loadGitProjects() {
 }
 
 function formatHTML() {
-  let n = document.createElement("div");
   let s = arguments[0];
   for (let i = 0; i < arguments.length - 1; i++) {
     let reg = new RegExp("\\{" + i + "\\}", "gm");
     s = s.replace(reg, arguments[i + 1]);
   }
-  n.innerHTML = s;
-  return n;
+  return s;
 }
