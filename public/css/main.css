@@ -5,19 +5,19 @@
 }
 .cardy:hover {
   transform: translateX(-15px);
-  border-color: dodgerblue;
-  box-shadow: 2px 1px 0px dodgerblue;
+  border-color: var(--light-blue);
+  box-shadow: 2px 1px 0px var(--light-blue);
 }
 .cardy .card-text {
   color: whitesmoke;
 }
 .li-line {
-  color: dodgerblue;
+  color: var(--light-blue);
   position: relative;
   padding-left: 1rem;
 }
 .li-line::marker {
-  color: dodgerblue;
+  color: var(--light-blue);
   font-size: 1.8rem;
 }
 .li-line p {
@@ -25,7 +25,7 @@
 }
 .li-line::before {
   position: absolute;
-  border-left: .2rem solid dodgerblue;
+  border-left: .2rem solid var(--light-blue);
   height: 100%;
   display: block;
   content: "";
