@@ -18,7 +18,7 @@
 }
 .li-line::marker {
   color: var(--light-blue);
-  font-size: 1.8rem;
+  font-size: 1.4em;
 }
 .li-line p {
   color: #8c8c8c;
@@ -29,5 +29,5 @@
   height: 100%;
   display: block;
   content: "";
-  left: -1.3em;
+  left: -1em;
 }
